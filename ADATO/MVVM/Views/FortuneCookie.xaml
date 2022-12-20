@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ADATO.MVVM.Views.FortuneCookie"
+             Title="FortuneCookie"
+             NavigationPage.HasNavigationBar="false">
+    <Grid RowDefinitions=".9*,.1*" >
+        <Grid RowDefinitions="Auto,.5*,.4*" x:Name="GridScreenShare" StyleClass="ScreenShareGrid">
+
+            <Label Text="" StyleClass="DarkBlue, Header" IsVisible="true" x:Name="TitleText" />
+
+            <ImageButton Grid.Row="1" x:Name="CookieButton" Style="{StaticResource CookieButtonStyle}" Source="fortunecookie.png" Clicked="ImageButton_Clicked" />
+
+        <Grid Grid.Row="2" RowDefinitions="*" StyleClass="GridTxt">
+            
+            <Label x:Name="TxtCookie"  StyleClass="FortuneCookie" Text="Uderz w ciastko! :)" />
+            
+
+        </Grid>
+        </Grid>
+        <Grid Grid.Row="2" ColumnDefinitions="*,*">
+            <Button Grid.Column="0" Style="{StaticResource BackBtn}" Text="Powrót " Clicked="Button_Clicked"  />
+            <ImageButton Grid.Column="1" Source="{AppThemeBinding Light=sharelighttheme.png, Dark=sharedarktheme.png}"  Clicked="Button_Share" Scale="0.6" />
+        </Grid>
+        
+    </Grid>
+</ContentPage>

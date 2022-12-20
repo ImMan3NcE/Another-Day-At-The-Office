@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="DarkBlue">#212B4F</Color>
+    <Color x:Key="LightBlue">#8A8BA6</Color>
+    <Color x:Key="TxtLabelColor">#4d2a2c</Color>
+
+    <!--#region Labels -->
+    
+    <Style Class="DarkBlue" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource DarkBlue}"/>
+    </Style>
+
+    <Style Class="DateLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TxtLabelColor}"/>
+    </Style>
+
+    <Style Class="MenuLbl" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TxtLabelColor}"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="TextCaveat"/>
+        <Setter Property="Margin" Value="10,10,0,0"/>
+
+    </Style>
+
+    <Style Class="NameDay" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TxtLabelColor}"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+        <Setter Property="FontFamily" Value="TextCaveat"/>
+        <Setter Property="Margin" Value="10,10,0,0"/>
+        
+    </Style>
+    <Style Class="NameDayNames" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TxtLabelColor}"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource DateBackground}"/>
+        <Setter Property="HorizontalTextAlignment" Value="Start"/>
+        <Setter Property="FontFamily" Value="TextCaveat"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        
+    </Style>
+    <Style Class="ProverbsDay" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TxtLabelColor}"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource DateBackground}"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="TextCaveat"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="Margin" Value="10,0,10,0"/>
+    </Style>
+    
+    <Style Class="QuoteDay" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TxtLabelColor}"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource DateBackground}"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="TextCaveat"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+
+    </Style>
+
+    <Style Class="QuoteDayAuthor" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TxtLabelColor}"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource DateBackground}"/>
+        <Setter Property="HorizontalTextAlignment" Value="End"/>
+        <Setter Property="FontFamily" Value="TextCaveat"/>
+        <!--<Setter Property="Margin" Value="0,-2,0,0"/>-->
+        
+        
+    </Style>
+
+    <Style Class="Header" TargetType="Label">
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="TitleBanger"/>
+    </Style>
+
+    <Style Class="SubHeader" TargetType="Label">
+        <Setter Property="FontSize" Value="Large"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="TextCaveat"/>
+    </Style>
+    <Style Class="SubHeader2" TargetType="Label">
+        <Setter Property="FontSize" Value="Large"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="TextCaveat"/>
+    </Style>
+
+    <Style Class="FortuneCookie" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TxtLabelColor}"/>
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="TextCaveat"/>
+        <Setter Property="Margin" Value="10,10,0,0"/>
+
+    </Style>
+
+    
+
+    <!--#endregion-->
+
+    <Shadow 
+        x:Key="shadow"
+        Brush="Black"
+        Opacity="0.6"
+        Radius="15"
+        Offset="10,15"/>
+
+
+    <Style TargetType="RoundRectangle">
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Fill" Value="{StaticResource DateBackground}"/>
+        <Setter Property="WidthRequest" Value="200"/>
+        
+        <Setter Property="Shadow" Value="{StaticResource shadow}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+
+    <!--#region Grid -->
+    <Style Class="ScreenShareGrid" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="{StaticResource Background}"/>
+        <!--<Setter Property="BackgroundColor" Value="Black"/>-->
+    </Style>
+    
+
+    <Style Class="GridMenu" TargetType="Grid">
+        <Setter Property="BackgroundColor" Value="#FEEAE6"/>
+        <Setter Property="Margin" Value="10,0,10,0"/>
+    </Style>
+
+    <Style Class="GridTxt" TargetType="Grid">
+        
+        <Setter Property="Margin" Value="10,0,10,0"/>
+        
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Button -->
+    <Style x:Key="BaseButton" TargetType="Button">
+        <Setter Property="FontFamily" Value="TextCaveat"/>
+        <Setter Property="FontSize" Value="25"/>
+    </Style>
+    
+    <Style BasedOn="{StaticResource BaseButton}" TargetType="Button"></Style>
+    
+    <Style x:Key="MenuBtn" BasedOn="{StaticResource BaseButton}" TargetType="Button">
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="TextColor" Value="{StaticResource DateBackground}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource btnMenuTxtColor}"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="WidthRequest" Value="200"/>
+        <Setter Property="BorderColor" Value="{StaticResource DateBackground}"/>
+        <Setter Property="BorderWidth" Value="3"/>
+    </Style>
+    <Style x:Key="BackBtn" BasedOn="{StaticResource BaseButton}" TargetType="Button">
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="TextColor" Value="{StaticResource DateBackground}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource btnMenuTxtColor}"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <!--<Setter Property="WidthRequest" Value="300"/>-->
+        <Setter Property="BorderColor" Value="{StaticResource DateBackground}"/>
+        <Setter Property="BorderWidth" Value="3"/>
+    </Style>
+    <Style x:Key="ValueDay" BasedOn="{StaticResource BaseButton}" TargetType="Button">
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="TextColor" Value="{StaticResource btnMenuTxtColor}"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="WidthRequest" Value="45"/>
+        <Setter Property="BorderColor" Value="{StaticResource btnMenuTxtColor}"/>
+        <Setter Property="BorderWidth" Value="3"/>
+        <Setter Property="FontSize" Value="Title"/>
+    </Style>
+
+    <Style x:Key="CookieButtonStyle" TargetType="ImageButton">
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <!--<Setter Property="BackgroundColor" Value="Red"/>-->
+    </Style>
+    
+
+    <!--#endregion-->
+
+    <Style x:Key="DatePicker" TargetType="DatePicker">
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="WidthRequest" Value="180"/>
+        <Setter Property="Margin" Value="10,0,0,0"/>
+        <Setter Property="FontFamily" Value="TextCaveat"/>
+        <Setter Property="TextColor" Value="{StaticResource TxtLabelColor}"/>
+        
+    </Style>
+    
+
+
+</ResourceDictionary>

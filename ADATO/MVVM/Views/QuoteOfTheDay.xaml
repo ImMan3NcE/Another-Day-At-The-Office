@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ADATO.MVVM.Views.QuoteOfTheDay"
+             Title="QuoteOfTheDay"
+             NavigationPage.HasNavigationBar="false">
+    <Grid RowDefinitions="9*,1*">
+
+
+        <Grid Grid.Row="0" RowDefinitions="Auto,Auto,.8*" x:Name="GridScreenShare" StyleClass="ScreenShareGrid">
+            <Label Text="" StyleClass="DarkBlue, Header" IsVisible="true" x:Name="TitleText" />
+            <Grid Grid.Row="1" ColumnDefinitions=".3*,.4*,.3*">
+                <Button Style="{StaticResource ValueDay}" Grid.Column="0" Text="&lt;" Clicked="Button_Previous" x:Name="PreviousDay"/>
+                <DatePicker x:Name="datePickerNameDay"  Style="{StaticResource DatePicker}" DateSelected="datePickerNameDay_DateSelected" Grid.Column="1"/>
+                <Button Style="{StaticResource ValueDay}" Grid.Column="2" Text=">" Clicked="Button_Next" x:Name="NextDay"/>
+            </Grid>
+            <Grid Grid.Row="2" RowDefinitions=".2*,.1*,.7*" StyleClass="GridTxt">
+                <Image  Source="quote.png" />
+                <Label Grid.Row="1" StyleClass="NameDay" Text="Cytat Dnia:" />
+                <Grid Grid.Row="2" RowDefinitions=".7*,.2*,.1*" >
+                    <ScrollView>
+                        <Label Grid.Row="0"  x:Name="quotes" StyleClass="QuoteDay" Text="xxx" />
+                    </ScrollView>
+                    <Label Grid.Row="1" x:Name="quoteAuthor" StyleClass="QuoteDayAuthor" Text="xxx    "  />
+                </Grid>
+
+
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" ColumnDefinitions="*,*">
+            <Button Grid.Column="0" Style="{StaticResource BackBtn}" Text="Powrót " Clicked="Button_Clicked"  />
+            <ImageButton Grid.Column="1" Source="{AppThemeBinding Light=sharelighttheme.png, Dark=sharedarktheme.png}"  Clicked="Button_Share" Scale="0.6" />
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ADATO.MVVM.Views.NameDay"
+             Title="NameDay"
+             NavigationPage.HasNavigationBar="false">
+    <Grid RowDefinitions="9*,1*">
+
+
+        <Grid Grid.Row="0" RowDefinitions="Auto,Auto,.8*" x:Name="GridScreenShare" StyleClass="ScreenShareGrid">
+            <!--<Label Text="Another Day at The Office" StyleClass="DarkBlue, Header" IsVisible="true" x:Name="TitleText" TextColor="{AppThemeBinding Light=#fededa, Dark=#442C2E}"/>-->
+            <Label Text="" StyleClass="DarkBlue, Header" IsVisible="true" x:Name="TitleText" />
+            <Grid ColumnDefinitions=".3*,.4*,.3*" Grid.Row="1">
+                <Button Style="{StaticResource ValueDay}" Grid.Column="0" Text="&lt;" Clicked="Button_Previous" x:Name="PreviousDay"/>
+                <DatePicker x:Name="datePickerNameDay"  Grid.Column="1" Style="{StaticResource DatePicker}" DateSelected="datePickerNameDay_DateSelected" />
+                <Button Style="{StaticResource ValueDay}" Grid.Column="2" Text=">" Clicked="Button_Next" x:Name="NextDay"/>
+            </Grid>
+            <Grid Grid.Row="2" RowDefinitions=".2*,.1*,.7*" StyleClass="GridTxt">
+                <Image  Source="nameday.png" />
+                <Label Grid.Row="1" StyleClass="NameDay" Text="Imieniny obchodzą:" />
+                <ScrollView Grid.Row="2">
+                    <Label  x:Name="names" StyleClass="NameDayNames" Text="xxx" />
+                </ScrollView>
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*">
+            <Button Grid.Column="0" Style="{StaticResource BackBtn}" Text="Powrót " Clicked="Button_Clicked"  />
+            <ImageButton Grid.Column="1" Source="{AppThemeBinding Light=sharelighttheme.png, Dark=sharedarktheme.png}"  Clicked="Button_Share" Scale="0.6" />
+        </Grid>
+    </Grid>
+</ContentPage>

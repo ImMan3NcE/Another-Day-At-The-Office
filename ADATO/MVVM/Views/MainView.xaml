@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ADATO.MVVM.Views.MainView"
+             Title="MainView"
+             NavigationPage.HasNavigationBar="false">
+    <Grid Margin="15" RowDefinitions=".1*,.1*,.8*">
+        <Label x:Name="lblBaner" Text="" StyleClass="DarkBlue, Header"/>
+        <!--#region 2Row -->
+        <Grid Grid.Row="1" RowDefinitions=".5*,.5*" ColumnDefinitions=".3*,.4*,.3*" >
+
+
+            <!--data-->
+            <CollectionView Grid.Row="0" Grid.Column="1" ItemsSource="{Binding DataDates}"  >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label StyleClass="DateLabel, SubHeader" Text="{Binding TodayDay, StringFormat='{0:d}'}"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <!--dzien w roku-->
+            <CollectionView Grid.Row="1" Grid.Column="0" ItemsSource="{Binding DataDates}" Grid.RowSpan="2" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label StyleClass="DateLabel, SubHeader2" Text="{Binding NumOfDayTxt}"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <!--nazwa dnia-->
+            <CollectionView Grid.Row="1" Grid.Column="1" ItemsSource="{Binding DataDates}" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label StyleClass="DateLabel, SubHeader" Text="{Binding DayName}"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <!--tydzien roku-->
+            <CollectionView Grid.Row="1" Grid.Column="2" ItemsSource="{Binding DataDates}" Grid.RowSpan="2" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label StyleClass="DateLabel, SubHeader2" Text="{Binding NumOfWeekTxt}"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+        <!--#endregion-->
+        <!--#region 3Row -->
+
+        <Grid Grid.Row="2" StyleClass="GridMenu" RowDefinitions="*,*,*" ColumnDefinitions="*,*">
+            <Grid Padding="15" BackgroundColor="#feafa6" RowDefinitions=".7*,.3*">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_NameDay"/>
+                </Grid.GestureRecognizers>
+                <Image Source="nameday.png"/>
+                <Label StyleClass="MenuLbl" Grid.Row="1" Text="Imieniny"/>
+            </Grid>
+            <Grid Grid.Column="1" Padding="15" BackgroundColor="#fededa" RowDefinitions=".7*,.3*">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_QuoteOfTheDay"/>
+                </Grid.GestureRecognizers>
+                <Image Source="quote.png"/>
+                <Label StyleClass="MenuLbl" Grid.Row="1" Text="Cytat Dnia"/>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="1" Padding="15" BackgroundColor="#fef0da" RowDefinitions=".7*,.3*">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Holidays"/>
+                </Grid.GestureRecognizers>
+                <Image Source="holiday.png"/>
+                <Label StyleClass="MenuLbl" Grid.Row="1" Text="Święta"/>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="1" Padding="15" BackgroundColor="#feafa6" RowDefinitions=".7*,.3*">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Proverb"/>
+                </Grid.GestureRecognizers>
+                <Image Source="talk.png"/>
+                <Label StyleClass="MenuLbl" Grid.Row="1" Text="Przysłowie"/>
+            </Grid>
+            <Grid Grid.ColumnSpan="2" Grid.Row="2" Padding="15" BackgroundColor="#fededa" RowDefinitions=".7*,.3*">
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_FortuneCookie"/>
+                </Grid.GestureRecognizers>
+                <Image Source="fortunecookie3.png"/>
+                <Label StyleClass="MenuLbl" Grid.Row="1" Text="Ciastko z Wróżbą"/>
+            </Grid>
+
+
+
+            <!--<ScrollView >
+
+                <VerticalStackLayout Margin="20" Padding="15" Spacing="35" >
+
+                    <Button Text="Imieniny" Style="{StaticResource MenuBtn}" Clicked="Button_NameDay"/>
+                    <Button Text="Cytat Dnia" Style="{StaticResource MenuBtn}" Clicked="Button_QuoteOfTheDay"/>
+                    <Button Text="Święta" Style="{StaticResource MenuBtn}" Clicked="Button_Holidays" />
+                    <Button Text="Przysłowie na dziś" Style="{StaticResource MenuBtn}" Clicked="Button_Proverb"/>
+                    <Button Text="Ciastko z wróżbą" Style="{StaticResource MenuBtn}" Clicked="Button_FortuneCookie"/>
+
+                </VerticalStackLayout>
+            </ScrollView>-->
+
+
+
+        </Grid>
+        <!--#endregion-->
+    </Grid>
+</ContentPage>
