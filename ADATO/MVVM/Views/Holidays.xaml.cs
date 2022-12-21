@@ -9,6 +9,13 @@ public partial class Holidays : ContentPage
 		InitializeComponent();
 	}
 
+    #region Wyswietlanie danych
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        EndSpeechBack();
+    }
     protected override async void OnAppearing()
     {
         int numOfTodayDay1 = datePickerNameDay.Date.DayOfYear;
@@ -61,9 +68,12 @@ public partial class Holidays : ContentPage
 
 
     }
+    #endregion
 
+    #region Obsluga przycisków
     private void Button_Clicked(object sender, EventArgs e)
     {
+        EndSpeechBack();
         Navigation.PopAsync();
     }
     private void Button_Next(object sender, EventArgs e)
@@ -74,6 +84,8 @@ public partial class Holidays : ContentPage
     {
         datePickerNameDay.Date = datePickerNameDay.Date.AddDays(-1);
     }
+    #endregion
+
 
     #region Udostepnianie
 
@@ -121,4 +133,38 @@ public partial class Holidays : ContentPage
     }
     #endregion
 
+
+    #region Text na mowe
+
+    CancellationTokenSource cts;
+    private async void StartSpeech(object sender, EventArgs e)
+    {
+        if (!string.IsNullOrEmpty(holidays.Text))
+        {
+            cts = new CancellationTokenSource();
+
+            PlayText.IsVisible = false;
+            EndText.IsVisible = true;
+
+            await TextToSpeech.Default.SpeakAsync(holidays.Text.ToString(), cancelToken: cts.Token);
+
+
+            PlayText.IsVisible = true;
+            EndText.IsVisible = false;
+        }
+    }
+
+    private void EndSpeech(object sender, EventArgs e)
+    {
+        EndSpeechBack();
+    }
+
+    public void EndSpeechBack()
+    {
+        if (cts?.IsCancellationRequested ?? true)
+            return;
+
+        cts.Cancel();
+    }
+    #endregion
 }

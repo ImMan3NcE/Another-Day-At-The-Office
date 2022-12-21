@@ -15,9 +15,12 @@
                 <DatePicker x:Name="datePickerNameDay" Grid.Column="1"  Style="{StaticResource DatePicker}" DateSelected="datePickerNameDay_DateSelected" />
                 <Button Style="{StaticResource ValueDay}" Grid.Column="2" Text=">" Clicked="Button_Next" x:Name="NextDay"/>
             </Grid>
-            <Grid Grid.Row="2" RowDefinitions=".2*,.1*,.7*" StyleClass="GridTxt">
+            <Grid Grid.Row="2" RowDefinitions=".2*,.1*,.7*" ColumnDefinitions=".9*,.1*" StyleClass="GridTxt">
                 <Image  Source="holiday.png" />
                 <Label Grid.Row="1" StyleClass="NameDay" Text="Nietypowe święta to:" />
+                <ImageButton x:Name="PlayText" Grid.Row="1" Grid.Column="1" Source="{AppThemeBinding Light=volumehighlighttheme.png, Dark=volumehighdarktheme.png}" Clicked="StartSpeech" />
+                <ImageButton x:Name="EndText"  Grid.Row="1" Grid.Column="1" Source="{AppThemeBinding Light=volumemutelighttheme.png, Dark=volumemutedarktheme.png}" IsVisible="false" Clicked="EndSpeech"/>
+
                 <ScrollView Grid.Row="2">
                     <Label x:Name="holidays" StyleClass="NameDayNames" Text="xxx" />
                 </ScrollView>

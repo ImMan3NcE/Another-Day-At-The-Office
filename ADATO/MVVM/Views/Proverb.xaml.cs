@@ -12,6 +12,13 @@ public partial class Proverb : ContentPage
         InitializeComponent();
     }
 
+    #region Wyswietlanie danych
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        EndSpeechBack();
+    }
     protected override async void OnAppearing()
     {
         int numOfTodayDay1 = datePickerNameDay.Date.DayOfYear;
@@ -74,9 +81,12 @@ public partial class Proverb : ContentPage
 
 
     }
+    #endregion
 
+    #region Obsluga przycisków
     private void Button_Clicked(object sender, EventArgs e)
     {
+        EndSpeechBack();
         Navigation.PopAsync();
     }
 
@@ -88,6 +98,7 @@ public partial class Proverb : ContentPage
     {
         datePickerNameDay.Date = datePickerNameDay.Date.AddDays(-1);
     }
+    #endregion
 
     #region Udostepnianie
 
@@ -133,6 +144,48 @@ public partial class Proverb : ContentPage
 
         //VisibleValue();
     }
+    #endregion
+
+    #region Text na mowe
+
+    CancellationTokenSource cts;
+    private async void StartSpeech(object sender, EventArgs e)
+    {
+        if (!string.IsNullOrEmpty(proverbs.Text))
+        {
+            cts = new CancellationTokenSource();
+
+            PlayText.IsVisible = false;
+            EndText.IsVisible = true;
+
+            await TextToSpeech.Default.SpeakAsync(proverbs.Text.ToString(), cancelToken: cts.Token);
+            if (cts?.IsCancellationRequested ?? true)
+            {
+                PlayText.IsVisible = true;
+                EndText.IsVisible = false;
+                return;
+            }    
+            else if(!string.IsNullOrEmpty(proverbs1.Text))
+                await TextToSpeech.Default.SpeakAsync(proverbs1.Text.ToString(), cancelToken: cts.Token);
+
+            PlayText.IsVisible = true;
+            EndText.IsVisible = false;
+        }
+    }
+
+    private void EndSpeech(object sender, EventArgs e)
+    {
+        EndSpeechBack();
+    }
+    public void EndSpeechBack()
+    {
+        if (cts?.IsCancellationRequested ?? true)
+            return;
+
+        cts.Cancel();
+    }
+
+
     #endregion
 
 }

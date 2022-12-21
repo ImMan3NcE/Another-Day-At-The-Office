@@ -5,6 +5,7 @@ namespace ADATO.MVVM.Views;
 public partial class NameDay : ContentPage
 {
     List<string> namedays = new List<string>();
+    
     public NameDay()
 	{
 		InitializeComponent();
@@ -13,7 +14,11 @@ public partial class NameDay : ContentPage
 
     #region Wyswietlanie danych
 
-    
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        EndSpeechBack();
+    }
 
     protected override async void OnAppearing()
     {
@@ -78,6 +83,7 @@ public partial class NameDay : ContentPage
     
     private void Button_Clicked(object sender, EventArgs e)
     {
+        EndSpeechBack();
         //App.Current.MainPage = new MainView();
         Navigation.PopAsync();
     }
@@ -138,4 +144,40 @@ public partial class NameDay : ContentPage
         //VisibleValue();
     }
     #endregion
+
+
+    #region Text na mowe
+
+    CancellationTokenSource cts;
+    private async void StartSpeech(object sender, EventArgs e)
+    {
+        if (!string.IsNullOrEmpty(names.Text))
+        {
+            cts = new CancellationTokenSource();
+
+            PlayText.IsVisible = false;
+            EndText.IsVisible = true;
+
+            await TextToSpeech.Default.SpeakAsync(names.Text.ToString(), cancelToken: cts.Token);
+
+
+            PlayText.IsVisible = true;
+            EndText.IsVisible = false;
+        }
+    }
+
+    private void EndSpeech(object sender, EventArgs e)
+    {
+        EndSpeechBack();
+    }
+
+    public void EndSpeechBack()
+    {
+        if (cts?.IsCancellationRequested ?? true)
+            return;
+
+        cts.Cancel();
+    }
+    #endregion
+
 }
