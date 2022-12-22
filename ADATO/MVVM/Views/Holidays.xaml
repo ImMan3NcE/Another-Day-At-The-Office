@@ -21,7 +21,7 @@
                 <ImageButton x:Name="PlayText" Grid.Row="1" Grid.Column="1" Source="{AppThemeBinding Light=volumehighlighttheme.png, Dark=volumehighdarktheme.png}" Clicked="StartSpeech" />
                 <ImageButton x:Name="EndText"  Grid.Row="1" Grid.Column="1" Source="{AppThemeBinding Light=volumemutelighttheme.png, Dark=volumemutedarktheme.png}" IsVisible="false" Clicked="EndSpeech"/>
 
-                <ScrollView Grid.Row="2">
+                <ScrollView Grid.Row="2" Grid.ColumnSpan="2">
                     <Label x:Name="holidays" StyleClass="NameDayNames" Text="xxx" />
                 </ScrollView>
             </Grid>

@@ -19,8 +19,8 @@
 		<ApplicationIdGuid>7e908409-92b8-4436-a485-0ff3e2d54b67</ApplicationIdGuid>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.02.01</ApplicationDisplayVersion>
-		<ApplicationVersion>5</ApplicationVersion>
+		<ApplicationDisplayVersion>1.02.02</ApplicationDisplayVersion>
+		<ApplicationVersion>6</ApplicationVersion>
 
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
@@ -54,6 +54,10 @@
 	  <None Remove="Resources\Images\share.png" />
 	  <None Remove="Resources\Images\sharedarktheme.png" />
 	  <None Remove="Resources\Images\sharelighttheme.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Maui" Version="1.4.0" />
 	</ItemGroup>
 
 </Project>

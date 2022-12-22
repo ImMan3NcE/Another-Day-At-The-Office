@@ -19,7 +19,7 @@
                 <ImageButton x:Name="PlayText" Grid.Row="1" Grid.Column="1" Source="{AppThemeBinding Light=volumehighlighttheme.png, Dark=volumehighdarktheme.png}" Clicked="StartSpeech" />
                 <ImageButton x:Name="EndText"  Grid.Row="1" Grid.Column="1" Source="{AppThemeBinding Light=volumemutelighttheme.png, Dark=volumemutedarktheme.png}" IsVisible="false" Clicked="EndSpeech"/>
 
-                <Grid Grid.Row="2" RowDefinitions="*,*">
+                <Grid Grid.Row="2" Grid.ColumnSpan="2" RowDefinitions="*,*">
                     <ScrollView Grid.Row="0">
                         <Label  x:Name="proverbs" StyleClass="ProverbsDay" Text="xxx" />
                     </ScrollView>

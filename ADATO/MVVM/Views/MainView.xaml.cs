@@ -10,8 +10,16 @@ public partial class MainView : ContentPage
 		InitializeComponent();
 		BindingContext = new MainViewModel();
         IfHolidays();
-
+        //CheckVersion();
+        
     }
+
+    //public async void CheckVersion()
+    //{
+    //    string version = AppInfo.Current.VersionString;
+        
+    //    await DisplayAlert($"{version}", "You have been alerted", "OK");
+    //}
 
     public void IfHolidays()
     {
