@@ -8,7 +8,7 @@ Z naszą aplikacją będziesz zawsze na bieżąco z imieninami swoich bliskich i
 
 Codziennie będziesz też otrzymywać inspirujący cytat dnia oraz przysłowie z ciastkiem z wróżbą. Dzięki temu każdy dzień będzie miał swój uroczysty nastrój.
 
-Nie czekaj, pobierz naszą aplikację już dziś i ciesz się każdym dniem pełną piersią!
+
 
 ![image](https://github.com/ImMan3NcE/ADATO/assets/112756919/80513433-99ae-4d08-ae5d-b364abfa3247)
 ![image](https://github.com/ImMan3NcE/ADATO/assets/112756919/2f879d89-732f-4cfa-990e-0053832e93bf)
